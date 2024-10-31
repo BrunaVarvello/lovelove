@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido Especial</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('caminho/para/sua/imagem.png'); /* Substitua pelo caminho correto */
+            background-size: contain;
+            background-repeat: repeat;
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="question">Quer casar comigo?</h1>
+        <div class="buttons" id="buttons">
+            <button onclick="firstYes()">Sim</button>
+            <button onclick="firstNo()">Não</button>
+        </div>
+    </div>
+
+    <script>
+        function firstYes() {
+            document.getElementById("question").textContent = "Mas tem que ser hoje, agora. 20h no cartório. Topa mesmo?";
+            document.getElementById("buttons").innerHTML = `
+                <button onclick="secondYes()">Sim</button>
+                <button onclick="secondNo()">Não</button>
+            `;
+        }
+
+        function firstNo() {
+            document.getElementById("question").textContent = "Ah, sério? Pense bem, talvez você mude de ideia :)";
+            document.getElementById("buttons").innerHTML = `
+                <button onclick="firstYes()">Ok, pensei melhor. Sim</button>
+                <button onclick="finalNo()">Não, ainda não estou pronto</button>
+            `;
+        }
+
+        function secondYes() {
+            document.getElementById("question").textContent = "Está marcado, te encontro lá. Vá de terno!";
+            document.getElementById("buttons").style.display = 'none';
+        }
+
+        function secondNo() {
+            document.getElementById("question").textContent = "Sem pressa, só queria que soubesse que você é o meu amor!";
+            document.getElementById("buttons").style.display = 'none';
+        }
+
+        function finalNo() {
+            document.getElementById("question").textContent = "Ok, respeito seu tempo. Mas saiba que sempre estarei aqui te esperando!";
+            document.getElementById("buttons").style.display = 'none';
+        }
+    </script>
+</body>
+</html>
